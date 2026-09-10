@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krazy Récords Entertainment</title>
+    <title>Krazy Récords Entertainment — Sello Discográfico</title>
     <style>
         * {
             margin: 0;
@@ -18,40 +18,41 @@
             line-height: 1.7;
         }
 
-        /* ENCABEZADO ESTILO DISCOGRÁFICA */
+        /* ENCABEZADO SELLO */
         header {
-            background-color: #000000;
-            padding: 2.5rem 1.5rem;
+            background-color: #000;
+            padding: 2.8rem 1.5rem;
             text-align: center;
-            border-bottom: 1px solid #1a1a1a;
+            border-bottom: 2px solid #D4AF37;
         }
 
         h1 {
-            font-size: 2.4rem;
+            font-size: 2.6rem;
             color: #FFD700;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            text-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
-            margin-bottom: 0.5rem;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+            margin-bottom: 0.4rem;
         }
 
         .eslogan {
             color: #D4AF37;
-            font-size: 1rem;
-            letter-spacing: 1px;
+            font-size: 1.05rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         /* NAVEGACIÓN PROFESIONAL */
         nav {
             background-color: #080808;
-            padding: 1rem;
+            padding: 1.1rem;
             text-align: center;
             border-bottom: 1px solid #1a1a1a;
         }
 
         nav a {
             color: #D4AF37;
-            margin: 0 1.2rem;
+            margin: 0 1.3rem;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
@@ -65,35 +66,70 @@
             text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
         }
 
-        /* SECCIÓN PRINCIPAL */
-        .hero {
-            max-width: 1200px;
+        /* SECCIONES */
+        section {
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 3.5rem 1.5rem;
-            text-align: center;
+            padding: 3.2rem 1.5rem;
+            border-bottom: 1px solid #1a1a1a;
         }
 
-        .hero h2 {
+        h2 {
             color: #FFD700;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+            font-size: 1.6rem;
+            margin-bottom: 1.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #D4AF37;
+            display: inline-block;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
-        .hero p {
-            max-width: 800px;
-            margin: 0 auto 1.5rem;
-            font-size: 1.1rem;
-            color: #e0e0e0;
+        /* TARJETAS ESTILO SELLO */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
         }
 
-        /* BOTÓN ESTILO DISCOGRÁFICA */
+        .tarjeta {
+            background: linear-gradient(135deg, #0f0f0f, #181818);
+            padding: 2rem;
+            border-radius: 6px;
+            border: 1px solid #2a2a2a;
+            box-shadow: 0 0 18px rgba(212, 175, 55, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-6px);
+            border-color: #D4AF37;
+        }
+
+        .tarjeta h3 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tarjeta p {
+            color: #e0e0e0;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        strong {
+            color: #FFD700;
+        }
+
+        /* BOTÓN */
         .boton {
             display: inline-block;
             background: linear-gradient(90deg, #B8860B, #D4AF37, #B8860B);
             color: #000;
-            padding: 0.85rem 2.5rem;
+            padding: 0.9rem 2.4rem;
             border-radius: 4px;
             text-decoration: none;
             font-weight: bold;
@@ -106,75 +142,22 @@
         }
 
         .boton:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 16px rgba(212, 175, 55, 0.45);
+            transform: scale(1.03);
+            box-shadow: 0 0 18px rgba(212, 175, 55, 0.5);
         }
 
-        /* SECCIONES GENERALES */
-        .seccion {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
-            border-bottom: 1px solid #1a1a1a;
+        .centro {
+            text-align: center;
+            margin-top: 2rem;
         }
 
-        .seccion h2 {
-            color: #FFD700;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #D4AF37;
-            display: inline-block;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* TARJETAS ESTILO WARNER MUSIC */
-        .grid-tarjetas {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .tarjeta {
-            background: linear-gradient(135deg, #0f0f0f, #181818);
-            padding: 1.8rem;
-            border-radius: 6px;
-            border: 1px solid #2a2a2a;
-            box-shadow: 0 0 18px rgba(212, 175, 55, 0.08);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .tarjeta:hover {
-            transform: translateY(-5px);
-            border-color: #D4AF37;
-        }
-
-        .tarjeta h3 {
-            color: #FFD700;
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .tarjeta p {
-            color: #e0e0e0;
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-
-        strong {
-            color: #FFD700;
-        }
-
-        /* PIE DE PÁGINA PROFESIONAL */
+        /* PIE DE PÁGINA */
         footer {
             background-color: #080808;
             text-align: center;
             padding: 2.5rem 1.5rem;
             margin-top: 2rem;
-            border-top: 1px solid #1a1a1a;
+            border-top: 2px solid #D4AF37;
             color: #888;
             font-size: 0.9rem;
         }
@@ -187,82 +170,109 @@
         @media (max-width: 768px) {
             h1 { font-size: 1.8rem; }
             nav a { margin: 0 0.6rem; font-size: 0.85rem; }
-            .hero h2 { font-size: 1.4rem; }
-            .seccion { padding: 2rem 1rem; }
-            .tarjeta { padding: 1.4rem; }
+            section { padding: 2rem 1rem; }
         }
     </style>
 </head>
 <body>
 
+    <!-- ENCABEZADO -->
     <header>
         <h1>Krazy Récords Entertainment</h1>
-        <p class="eslogan">Emo Rap — Música con identidad y sentimiento real</p>
+        <p class="eslogan">Sello Discográfico — Arte, Talento y Música con Identidad</p>
     </header>
 
+    <!-- MENÚ -->
     <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#musica">Música</a>
-        <a href="#comisiones">Comisiones</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#artistas">Artistas</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contratacion">Contratación</a>
         <a href="#contacto">Contacto</a>
     </nav>
 
-    <section class="hero" id="inicio">
-        <h2>Bienvenidos a Krazy Récords Entertainment</h2>
-        <p>Krazy Récords Entertainment es un sello discográfico independiente fundado y dirigido por JeyZack, artista y productor de Emo Rap con más de seis años de trayectoria y experiencia en la creación y producción musical.</p>
-        <p>Un espacio dedicado a la música con identidad, letras sinceras y producciones originales. Aquí se publica todo su trabajo y se ofrece la posibilidad de encargar composiciones personalizadas, creadas a medida para cada persona.</p>
-        <a class="boton" href="https://youtube.com/@TU_CANAL" target="_blank">🎬 Visita su canal en YouTube</a>
-    </section>
-
-    <section class="seccion" id="musica">
-        <h2>Su Música</h2>
-        <div class="grid-tarjetas">
-            <div class="tarjeta">
-                <h3>Producciones Originales</h3>
-                <p>Toda su producción musical se publica de forma oficial en su canal de YouTube bajo el sello <strong>Krazy Récords Entertainment</strong>.</p>
-            </div>
-            <div class="tarjeta">
-                <h3>Estilo y Visión</h3>
-                <p>Allí comparte sus canciones originales, sus producciones y todo el contenido creado desde cero, con composiciones y letras propias que reflejan su estilo y su visión artística.</p>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 1.5rem;">
-            <a class="boton" href="https://youtube.com/@TU_CANAL" target="_blank">▶ Escuchar su música</a>
+    <!-- SECCIÓN NOSOTROS -->
+    <section id="nosotros">
+        <h2>El Sello</h2>
+        <div class="tarjeta">
+            <p><strong>Krazy Récords Entertainment</strong> es un sello discográfico independiente fundado y dirigido por <strong>JeyZack</strong>, artista y productor con más de seis años de trayectoria en la creación, producción y dirección musical.</p>
+            <p>Su propósito es descubrir, firmar y representar a nuevos talentos del género urbano y Emo Rap, brindando estructura, producción, distribución y respaldo profesional para el desarrollo de sus carreras artísticas.</p>
         </div>
     </section>
 
-    <section class="seccion" id="comisiones">
-        <h2>Comisiones de Canciones</h2>
-        <div class="grid-tarjetas">
+    <!-- SECCIÓN ARTISTAS -->
+    <section id="artistas">
+        <h2>Nuestros Artistas</h2>
+        <div class="grid">
             <div class="tarjeta">
-                <h3>Composición a Medida</h3>
-                <p>Quienes lo deseen pueden solicitar una composición personalizada. JeyZack crea cada canción a medida: el interesado comparte su historia, sus sentimientos o aquello que desea expresar, y él lo transforma en una obra original de estilo <strong>Emo Rap</strong>.</p>
+                <h3>JeyZack</h3>
+                <p>Fundador, artista y productor del sello. Referente del Emo Rap con trayectoria y obra reconocida.</p>
+                <p><strong>Estado:</strong> Artista exclusivo del sello</p>
             </div>
             <div class="tarjeta">
-                <h3>Qué Incluye</h3>
-                <p>El servicio incluye letra original, producción musical, grabación y entrega del archivo de audio completamente listo.</p>
+                <h3>¿Tu Talento?</h3>
+                <p>Buscamos voces con identidad, sentimiento y compromiso. Si tienes talento y disciplina, puedes formar parte del sello.</p>
+                <p><strong>Estado:</strong> Apertura para nuevos artistas</p>
             </div>
         </div>
     </section>
 
-    <section class="seccion" id="contacto">
-        <h2>Contacto</h2>
-        <div class="grid-tarjetas">
+    <!-- SECCIÓN SERVICIOS DEL SELLO -->
+    <section id="servicios">
+        <h2>Qué Ofrecemos</h2>
+        <div class="grid">
+            <div class="tarjeta">
+                <h3>Representación</h3>
+                <p>El sello firma y respalda oficialmente tu carrera, gestionando tu imagen, proyectos y contratos profesionales.</p>
+            </div>
+            <div class="tarjeta">
+                <h3>Producción Musical</h3>
+                <p>Producción profesional, composición, grabación y masterización de cada lanzamiento bajo estándares de calidad.</p>
+            </div>
+            <div class="tarjeta">
+                <h3>Distribución y Promoción</h3>
+                <p>Publicación en plataformas digitales, presencia en redes sociales y canal oficial de YouTube del sello.</p>
+            </div>
+            <div class="tarjeta">
+                <h3>Comisiones Personalizadas</h3>
+                <p>Creación de canciones a medida para proyectos, artistas o público general, bajo sello oficial.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CONTRATACIÓN / FIRMA -->
+    <section id="contratacion">
+        <h2>Únete al Sello</h2>
+        <div class="tarjeta">
+            <p><strong>Krazy Récords Entertainment</strong> abre sus puertas a nuevos artistas que deseen firmar con un sello independiente.</p>
+            <p>Si tienes talento, obra propia, disciplina y compartimos visión, puedes enviarnos tu material y propuesta. Evaluamos cada proyecto y ofrecemos condiciones serias, claras y adaptadas a tu carrera.</p>
+            <p>El sello ofrece contrato, respaldo profesional, producción, distribución y crecimiento conjunto.</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CONTACTO -->
+    <section id="contacto">
+        <h2>Contacto Profesional</h2>
+        <div class="grid">
             <div class="tarjeta">
                 <h3>Canal Oficial</h3>
-                <p>Las consultas y solicitudes se reciben a través del canal de YouTube y los comentarios de sus publicaciones.</p>
-                <p>🎬 Canal oficial: <strong>youtube.com/@TU_CANAL</strong></p>
+                <p>Producciones oficiales del sello y sus artistas.</p>
+                <p>🎬 youtube.com/@TU_CANAL</p>
             </div>
             <div class="tarjeta">
-                <h3>Correo de Contacto</h3>
-                <p>Para consultas profesionales, contrataciones o proyectos colaborativos, puedes escribir al correo de contacto del sello.</p>
-                <p>📧 Correo: <strong>TU_CORREO@ejemplo.com</strong></p>
+                <h3>Correo del Sello</h3>
+                <p>Propuestas de artistas, contrataciones, contratos y negocios.</p>
+                <p>📧 TU_CORREO@ejemplo.com</p>
             </div>
+        </div>
+        <div class="centro">
+            <a class="boton" href="https://youtube.com/@TU_CANAL" target="_blank">▶ Visitar canal oficial del sello</a>
         </div>
     </section>
 
+    <!-- PIE DE PÁGINA -->
     <footer>
-        <p>© 2026 Krazy Récords Entertainment — Todos los derechos reservados</p>
+        <p>© 2026 Krazy Récords Entertainment — Sello Discográfico. Todos los derechos reservados.</p>
         <p>Fundado y dirigido por JeyZack — México 🇲🇽</p>
     </footer>
 
