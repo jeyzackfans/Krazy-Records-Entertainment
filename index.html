@@ -48,6 +48,9 @@
             padding: 1.1rem;
             text-align: center;
             border-bottom: 1px solid #D4AF37;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         nav a {
@@ -59,10 +62,15 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
         }
 
-        nav a:hover {
+        nav a:hover,
+        nav a.activo {
             color: #FFD700;
+            background-color: rgba(212, 175, 55, 0.15);
             text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
         }
 
@@ -79,18 +87,33 @@
             object-fit: cover;
         }
 
-        /* SECCIONES */
-        section {
+        /* CONTENEDOR DE PÁGINAS */
+        .contenedor-paginas {
             max-width: 1100px;
             margin: 0 auto;
+            min-height: 60vh;
+        }
+
+        /* SECCIONES / PÁGINAS */
+        .pagina {
+            display: none;
             padding: 3.2rem 1.5rem;
-            border-bottom: 1px solid #1a1a1a;
+            animation: aparecer 0.4s ease forwards;
+        }
+
+        .pagina.visible {
+            display: block;
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         h2 {
             color: #FFD700;
-            font-size: 1.6rem;
-            margin-bottom: 1.8rem;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid #D4AF37;
             display: inline-block;
@@ -168,7 +191,7 @@
         footer {
             background-color: #121212;
             padding: 3.5rem 1.5rem 2.5rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
             border-top: 2px solid #D4AF37;
         }
 
@@ -262,22 +285,13 @@
             .footer-contenedor {
                 grid-template-columns: repeat(2, 1fr);
             }
+            nav a { margin: 0 0.5rem; font-size: 0.85rem; padding: 0.4rem 0.7rem; }
         }
 
         @media (max-width: 600px) {
             h1 { font-size: 1.8rem; }
-            nav a { margin: 0 0.6rem; font-size: 0.85rem; }
-            section { padding: 2rem 1rem; }
-            .footer-contenedor {
-                grid-template-columns: 1fr;
-            }
-            .footer-linea-inferior {
-                flex-direction: column;
-                text-align: center;
-            }
-            .footer-enlaces-legales a {
-                margin: 0 0.6rem;
-            }
+            .footer-contenedor { grid-template-columns: 1fr; }
+            .footer-linea-inferior { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -289,98 +303,117 @@
         <p class="eslogan">Sello Discográfico — Arte, Talento y Música con Identidad</p>
     </header>
 
-    <!-- MENÚ -->
+    <!-- MENÚ DE NAVEGACIÓN -->
     <nav>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#artistas">Artistas</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#contratacion">Contratación</a>
-        <a href="#contacto">Contacto</a>
+        <a data-pagina="inicio" class="activo">Inicio</a>
+        <a data-pagina="nosotros">Nosotros</a>
+        <a data-pagina="artistas">Artistas</a>
+        <a data-pagina="servicios">Servicios</a>
+        <a data-pagina="contratacion">Contratación</a>
+        <a data-pagina="contacto">Contacto</a>
     </nav>
 
-    <!-- IMAGEN DESTACADA DEBAJO DEL MENÚ -->
+    <!-- IMAGEN DESTACADA (SIEMPRE VISIBLE) -->
     <div class="imagen-portada">
         <img src="https://i.imgur.com/yvl78oO.jpeg" alt="Krazy Récords Entertainment — Imagen destacada" loading="lazy">
     </div>
 
-    <!-- SECCIÓN NOSOTROS -->
-    <section id="nosotros">
-        <h2>El Sello</h2>
-        <div class="tarjeta">
-            <p><strong>Krazy Récords Entertainment</strong> es un sello discográfico independiente fundado y dirigido por <strong>JeyZack</strong>, artista y productor con más de seis años de trayectoria en la creación, producción y dirección musical.</p>
-            <p>Su propósito es descubrir, firmar y representar a nuevos talentos del género urbano y Emo Rap, brindando estructura, producción, distribución y respaldo profesional para el desarrollo de sus carreras artísticas.</p>
-        </div>
-    </section>
+    <!-- CONTENEDOR DE PÁGINAS -->
+    <main class="contenedor-paginas">
 
-    <!-- SECCIÓN ARTISTAS -->
-    <section id="artistas">
-        <h2>Nuestros Artistas</h2>
-        <div class="grid">
+        <!-- PÁGINA: INICIO -->
+        <div class="pagina visible" id="pagina-inicio">
+            <h2>Bienvenidos a Krazy Récords Entertainment</h2>
             <div class="tarjeta">
-                <h3>JeyZack</h3>
-                <p>Fundador, artista y productor del sello. Referente del Emo Rap con trayectoria y obra reconocida.</p>
-                <p><strong>Estado:</strong> Artista exclusivo del sello</p>
-            </div>
-            <div class="tarjeta">
-                <h3>¿Tu Talento?</h3>
-                <p>Buscamos voces con identidad, sentimiento y compromiso. Si tienes talento y disciplina, puedes formar parte del sello.</p>
-                <p><strong>Estado:</strong> Apertura para nuevos artistas</p>
+                <p><strong>Krazy Récords Entertainment</strong> es un sello discográfico independiente fundado y dirigido por <strong>JeyZack</strong>, artista y productor con más de seis años de trayectoria en la creación, producción y dirección musical.</p>
+                <p>Un espacio dedicado a descubrir talento, formar artistas y llevar música con identidad al público. Producción, representación y crecimiento conjunto.</p>
+                <p>Navega por las secciones para conocer quiénes somos, nuestros artistas, servicios y cómo puedes formar parte del sello.</p>
+                <div class="centro">
+                    <a class="boton" href="https://youtube.com/@TU_CANAL" target="_blank">▶ Visitar canal oficial del sello</a>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- SECCIÓN SERVICIOS DEL SELLO -->
-    <section id="servicios">
-        <h2>Qué Ofrecemos</h2>
-        <div class="grid">
+        <!-- PÁGINA: NOSOTROS -->
+        <div class="pagina" id="pagina-nosotros">
+            <h2>El Sello</h2>
             <div class="tarjeta">
-                <h3>Representación</h3>
-                <p>El sello firma y respalda oficialmente tu carrera, gestionando tu imagen, proyectos y contratos profesionales.</p>
-            </div>
-            <div class="tarjeta">
-                <h3>Producción Musical</h3>
-                <p>Producción profesional, composición, grabación y masterización de cada lanzamiento bajo estándares de calidad.</p>
-            </div>
-            <div class="tarjeta">
-                <h3>Distribución y Promoción</h3>
-                <p>Publicación en plataformas digitales, presencia en redes sociales y canal oficial de YouTube del sello.</p>
-            </div>
-            <div class="tarjeta">
-                <h3>Comisiones Personalizadas</h3>
-                <p>Creación de canciones a medida para proyectos, artistas o público general, bajo sello oficial.</p>
+                <p><strong>Krazy Récords Entertainment</strong> es un sello discográfico independiente fundado y dirigido por <strong>JeyZack</strong>, artista y productor con más de seis años de trayectoria en la creación, producción y dirección musical.</p>
+                <p>Su propósito es descubrir, firmar y representar a nuevos talentos del género urbano y Emo Rap, brindando estructura, producción, distribución y respaldo profesional para el desarrollo de sus carreras artísticas.</p>
             </div>
         </div>
-    </section>
 
-    <!-- SECCIÓN CONTRATACIÓN / FIRMA -->
-    <section id="contratacion">
-        <h2>Únete al Sello</h2>
-        <div class="tarjeta">
-            <p><strong>Krazy Récords Entertainment</strong> abre sus puertas a nuevos artistas que deseen firmar con un sello independiente.</p>
-            <p>Si tienes talento, obra propia, disciplina y compartimos visión, puedes enviarnos tu material y propuesta. Evaluamos cada proyecto y ofrecemos condiciones serias, claras y adaptadas a tu carrera.</p>
-            <p>El sello ofrece contrato, respaldo profesional, producción, distribución y crecimiento conjunto.</p>
+        <!-- PÁGINA: ARTISTAS -->
+        <div class="pagina" id="pagina-artistas">
+            <h2>Nuestros Artistas</h2>
+            <div class="grid">
+                <div class="tarjeta">
+                    <h3>JeyZack</h3>
+                    <p>Fundador, artista y productor del sello. Referente del Emo Rap con trayectoria y obra reconocida.</p>
+                    <p><strong>Estado:</strong> Artista exclusivo del sello</p>
+                </div>
+                <div class="tarjeta">
+                    <h3>¿Tu Talento?</h3>
+                    <p>Buscamos voces con identidad, sentimiento y compromiso. Si tienes talento y disciplina, puedes formar parte del sello.</p>
+                    <p><strong>Estado:</strong> Apertura para nuevos artistas</p>
+                </div>
+            </div>
         </div>
-    </section>
 
-    <!-- SECCIÓN CONTACTO -->
-    <section id="contacto">
-        <h2>Contacto Profesional</h2>
-        <div class="grid">
-            <div class="tarjeta">
-                <h3>Canal Oficial</h3>
-                <p>Producciones oficiales del sello y sus artistas.</p>
-                <p>🎬 youtube.com/@TU_CANAL</p>
-            </div>
-            <div class="tarjeta">
-                <h3>Correo del Sello</h3>
-                <p>Propuestas de artistas, contrataciones, contratos y negocios.</p>
-                <p>📧 TU_CORREO@ejemplo.com</p>
+        <!-- PÁGINA: SERVICIOS -->
+        <div class="pagina" id="pagina-servicios">
+            <h2>Qué Ofrecemos</h2>
+            <div class="grid">
+                <div class="tarjeta">
+                    <h3>Representación</h3>
+                    <p>El sello firma y respalda oficialmente tu carrera, gestionando tu imagen, proyectos y contratos profesionales.</p>
+                </div>
+                <div class="tarjeta">
+                    <h3>Producción Musical</h3>
+                    <p>Producción profesional, composición, grabación y masterización de cada lanzamiento bajo estándares de calidad.</p>
+                </div>
+                <div class="tarjeta">
+                    <h3>Distribución y Promoción</h3>
+                    <p>Publicación en plataformas digitales, presencia en redes sociales y canal oficial de YouTube del sello.</p>
+                </div>
+                <div class="tarjeta">
+                    <h3>Comisiones Personalizadas</h3>
+                    <p>Creación de canciones a medida para proyectos, artistas o público general, bajo sello oficial.</p>
+                </div>
             </div>
         </div>
-        <div class="centro">
-            <a class="boton" href="https://youtube.com/@TU_CANAL" target="_blank">▶ Visitar canal oficial del sello</a>
+
+        <!-- PÁGINA: CONTRATACIÓN -->
+        <div class="pagina" id="pagina-contratacion">
+            <h2>Únete al Sello</h2>
+            <div class="tarjeta">
+                <p><strong>Krazy Récords Entertainment</strong> abre sus puertas a nuevos artistas que deseen firmar con un sello independiente.</p>
+                <p>Si tienes talento, obra propia, disciplina y compartimos visión, puedes enviarnos tu material y propuesta. Evaluamos cada proyecto y ofrecemos condiciones serias, claras y adaptadas a tu carrera.</p>
+                <p>El sello ofrece contrato, respaldo profesional, producción, distribución y crecimiento conjunto.</p>
+            </div>
         </div>
-    </section>
+
+        <!-- PÁGINA: CONTACTO -->
+        <div class="pagina" id="pagina-contacto">
+            <h2>Contacto Profesional</h2>
+            <div class="grid">
+                <div class="tarjeta">
+                    <h3>Canal Oficial</h3>
+                    <p>Producciones oficiales del sello y sus artistas.</p>
+                    <p>🎬 youtube.com/@TU_CANAL</p>
+                </div>
+                <div class="tarjeta">
+                    <h3>Correo del Sello</h3>
+                    <p>Propuestas de artistas, contrataciones, contratos y negocios.</p>
+                    <p>📧 TU_CORREO@ejemplo.com</p>
+                </div>
+            </div>
+            <div class="centro">
+                <a class="boton" href="https://youtube.com/@TU_CANAL" target="_blank">▶ Enviar propuesta por YouTube</a>
+            </div>
+        </div>
+
+    </main>
 
     <!-- PIE DE PÁGINA ESTILO WARNER MUSIC -->
     <footer>
@@ -412,9 +445,9 @@
             <div class="footer-columna">
                 <h4>Descubre</h4>
                 <ul>
-                    <li><a href="#artistas">Nuestros Artistas</a></li>
-                    <li><a href="#contratacion">Únete al Sello</a></li>
-                    <li><a href="#contacto">Contacto Comercial</a></li>
+                    <li><a href="#" onclick="mostrarPagina('artistas'); return false;">Nuestros Artistas</a></li>
+                    <li><a href="#" onclick="mostrarPagina('contratacion'); return false;">Únete al Sello</a></li>
+                    <li><a href="#" onclick="mostrarPagina('contacto'); return false;">Contacto Comercial</a></li>
                 </ul>
             </div>
         </div>
@@ -430,6 +463,29 @@
             </div>
         </div>
     </footer>
+
+    <!-- SCRIPT DE NAVEGACIÓN -->
+    <script>
+        function mostrarPagina(nombre) {
+            // Ocultar todas las páginas
+            document.querySelectorAll('.pagina').forEach(p => p.classList.remove('visible'));
+            // Quitar clase activo de todos los enlaces
+            document.querySelectorAll('nav a').forEach(a => a.classList.remove('activo'));
+            // Mostrar página seleccionada
+            document.getElementById('pagina-' + nombre).classList.add('visible');
+            // Marcar enlace activo
+            document.querySelectorAll('nav a')[Object.keys(document.querySelectorAll('nav a')).find(k => document.querySelectorAll('nav a')[k].dataset.pagina === nombre)].classList.add('activo');
+            // Subir al contenido
+            document.querySelector('.contenedor-paginas').scrollIntoView({behavior: 'smooth'});
+        }
+
+        // Asignar clics del menú
+        document.querySelectorAll('nav a').forEach(enlace => {
+            enlace.addEventListener('click', () => {
+                mostrarPagina(enlace.dataset.pagina);
+            });
+        });
+    </script>
 
 </body>
 </html>
