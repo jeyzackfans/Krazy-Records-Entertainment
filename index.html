@@ -9,100 +9,156 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', 'Montserrat', sans-serif;
         }
 
         body {
-            background-color: #0f0f0f;
-            color: #f0f0f0;
-            line-height: 1.6;
+            background-color: #000000;
+            color: #f5f5f5;
+            line-height: 1.8;
         }
 
+        /* ENCABEZADO PRINCIPAL */
         header {
-            background: linear-gradient(135deg, #4b0082, #800080);
-            padding: 2rem;
+            background: linear-gradient(180deg, #0a0a0a, #000000);
+            padding: 3rem 1.5rem;
             text-align: center;
+            border-bottom: 2px solid #D4AF37;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
+            color: #FFD700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
             margin-bottom: 0.5rem;
         }
 
         .eslogan {
-            color: #d8b4fe;
-            font-style: italic;
+            color: #D4AF37;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
         }
 
+        /* BARRA DE NAVEGACIÓN */
         nav {
-            background-color: #1a1a1a;
-            padding: 1rem;
+            background-color: #080808;
+            padding: 1.2rem;
             text-align: center;
+            border-bottom: 1px solid #222;
         }
 
         nav a {
-            color: #d8b4fe;
-            margin: 0 1rem;
+            color: #D4AF37;
+            margin: 0 1.5rem;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
         }
 
         nav a:hover {
-            color: #ffffff;
+            color: #FFD700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
         }
 
+        /* SECCIONES GENERALES */
         section {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            border-bottom: 1px solid #1a1a1a;
         }
 
         h2 {
-            color: #c084fc;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid #333;
-            padding-bottom: 0.5rem;
-        }
-
-        .tarjeta {
-            background-color: #1e1e1e;
-            padding: 1.5rem;
-            border-radius: 10px;
+            color: #FFD700;
+            font-size: 1.6rem;
             margin-bottom: 1.5rem;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #D4AF37;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
+        /* TARJETAS DE CONTENIDO */
+        .tarjeta {
+            background: linear-gradient(135deg, #0f0f0f, #181818);
+            padding: 2rem;
+            border-radius: 6px;
+            border: 1px solid #2a2a2a;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.08);
+        }
+
+        .tarjeta p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            color: #e0e0e0;
+        }
+
+        /* BOTÓN ESTILO DORADO */
         .boton {
             display: inline-block;
-            background: linear-gradient(135deg, #4b0082, #800080);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
+            background: linear-gradient(90deg, #B8860B, #D4AF37, #B8860B);
+            color: #000;
+            padding: 0.9rem 2.2rem;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
             margin-top: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
 
         .boton:hover {
-            opacity: 0.9;
+            transform: scale(1.03);
+            box-shadow: 0 0 18px rgba(212, 175, 55, 0.5);
         }
 
+        /* DESTACADOS */
+        strong {
+            color: #FFD700;
+        }
+
+        /* PIE DE PÁGINA */
         footer {
-            background-color: #1a1a1a;
+            background-color: #080808;
             text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-top: 2px solid #D4AF37;
             color: #888;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 0.3rem 0;
+        }
+
+        /* RESPONSIVO PARA CELULAR */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            nav a { margin: 0 0.7rem; font-size: 0.9rem; }
+            section { padding: 2rem 1rem; }
+            .tarjeta { padding: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
+    <!-- ENCABEZADO -->
     <header>
-        <h1>🎙️ Krazy Récords Entertainment</h1>
-        <p class="eslogan">Emo rap — Música con identidad y sentimiento real</p>
+        <h1>Krazy Récords Entertainment</h1>
+        <p class="eslogan">Emo Rap — Música con identidad y sentimiento real</p>
     </header>
 
+    <!-- MENÚ DE NAVEGACIÓN -->
     <nav>
         <a href="#inicio">Inicio</a>
         <a href="#musica">Música</a>
@@ -110,49 +166,50 @@
         <a href="#contacto">Contacto</a>
     </nav>
 
+    <!-- SECCIÓN INICIO -->
     <section id="inicio">
         <h2>Bienvenidos</h2>
         <div class="tarjeta">
-            <p><strong>Krazy Récords Entertainment</strong> es mi sello discográfico independiente. Soy <strong>JeyZack / Zay On The Beat</strong>, artista y productor de emo rap con más de 6 años de experiencia.</p>
-            <br>
-            <p>Aquí encontrarás mi música original y la posibilidad de tener tu propia canción personalizada, hecha a medida con tu historia y tus sentimientos.</p>
-            <a class="boton" href="https://youtube.com/@TU_CANAL" target="_blank">🎬 Visita mi canal de YouTube</a>
+            <p><strong>Krazy Récords Entertainment</strong> es mi sello discográfico independiente. Fundado y dirigido por <strong>JeyZack / Zay On The Beat</strong>, artista y productor de Emo Rap con más de 6 años de experiencia.</p>
+            <p>Un espacio dedicado a la música con sentimiento, letras sinceras y producciones propias. Aquí encontrarás mi trabajo y la posibilidad de encargar tu propia canción personalizada.</p>
+            <a class="boton" href="https://youtube.com/@TU_CANAL" target="_blank">🎬 Visita mi canal en YouTube</a>
         </div>
     </section>
 
+    <!-- SECCIÓN MÚSICA -->
     <section id="musica">
-        <h2>🎧 Mi Música</h2>
+        <h2>Mi Música</h2>
         <div class="tarjeta">
-            <p>Toda mi música está disponible en mi canal de YouTube. Allí subo mis canciones, mis producciones y todo lo que creo.</p>
-            <br>
-            <p>🎵 Sello: <strong>Krazy Récords Entertainment</strong></p>
-            <a class="boton" href="https://youtube.com/@TU_CANAL" target="_blank">▶ Escuchar en YouTube</a>
+            <p>Toda mi producción musical se publica de forma oficial en mi canal de YouTube bajo el sello <strong>Krazy Récords Entertainment</strong>.</p>
+            <p>Allí subo mis canciones originales, mis producciones y todo el contenido creado desde cero, con letras y composiciones propias.</p>
+            <a class="boton" href="https://youtube.com/@TU_CANAL" target="_blank">▶ Escuchar mi música</a>
         </div>
     </section>
 
+    <!-- SECCIÓN COMISIONES -->
     <section id="comisiones">
-        <h2>💰 Comisiones de Canciones</h2>
+        <h2>Comisiones de Canciones</h2>
         <div class="tarjeta">
-            <p>¿Quieres tu propia canción? Te la hago a medida: eliges el tema, el estilo, me cuentas tu historia y yo escribo y produzco tu canción en estilo emo rap.</p>
-            <br>
-            <p><strong>Incluye:</strong> Letra original + Producción + Grabación + Archivo de audio listo.</p>
-            <p>📩 Escríbeme para decirme qué quieres y te doy todos los detalles.</p>
+            <p>¿Quieres tener tu propia canción? Te la creo a medida, completamente personalizada. Cuéntame tu historia, lo que sientes, lo que quieres decir, y yo lo convierto en una canción de estilo <strong>Emo Rap</strong> profesional.</p>
+            <p><strong>Incluye:</strong> Letra original escrita para ti + Producción musical + Grabación + Archivo de audio listo para que lo tengas y lo uses.</p>
+            <p>📩 Escríbeme y cuéntame tu idea. Trabajamos juntos en ella.</p>
         </div>
     </section>
 
+    <!-- SECCIÓN CONTACTO -->
     <section id="contacto">
-        <h2>📩 Contacto</h2>
+        <h2>Contacto</h2>
         <div class="tarjeta">
-            <p>Puedes escribirme por YouTube o por los comentarios de mis videos. También puedes contactarme aquí:</p>
-            <br>
-            <p>📧 Correo: tu.correo@ejemplo.com</p>
-            <p>🎬 Canal: youtube.com/@TU_CANAL</p>
+            <p>Puedes escribirme a través de mi canal de YouTube o por los comentarios de mis videos.</p>
+            <p>🎬 Canal oficial: <strong>youtube.com/@TU_CANAL</strong></p>
+            <p>📧 Correo de contacto: <strong>TU_CORREO@ejemplo.com</strong></p>
         </div>
     </section>
 
+    <!-- PIE DE PÁGINA -->
     <footer>
         <p>© 2026 Krazy Récords Entertainment — Todos los derechos reservados</p>
-        <p>Fundado y dirigido por JeyZack / Zay On The Beat</p>
+        <p>Fundado y dirigido por JeyZack / Zay On The Beat — México 🇲🇽</p>
     </footer>
 
 </body>
