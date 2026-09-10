@@ -164,26 +164,120 @@
             margin-top: 2rem;
         }
 
-        /* PIE DE PÁGINA */
+        /* PIE DE PÁGINA ESTILO WARNER */
         footer {
-            background-color: #080808;
-            text-align: center;
-            padding: 2.5rem 1.5rem;
+            background-color: #121212;
+            padding: 3.5rem 1.5rem 2.5rem;
             margin-top: 2rem;
             border-top: 2px solid #D4AF37;
-            color: #888;
-            font-size: 0.9rem;
         }
 
-        footer p {
-            margin: 0.3rem 0;
+        .footer-contenedor {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr repeat(3, 1fr);
+            gap: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .footer-marca h3 {
+            color: #FFD700;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-marca p {
+            color: #999;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-columna h4 {
+            color: #FFD700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-columna ul {
+            list-style: none;
+        }
+
+        .footer-columna ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-columna ul li a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-columna ul li a::before {
+            content: "•";
+            color: #D4AF37;
+            margin-right: 0.5rem;
+        }
+
+        .footer-columna ul li a:hover {
+            color: #FFD700;
+        }
+
+        .footer-linea-inferior {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-copyright {
+            color: #777;
+            font-size: 0.85rem;
+        }
+
+        .footer-enlaces-legales a {
+            color: #777;
+            font-size: 0.85rem;
+            text-decoration: none;
+            margin-left: 1.2rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-enlaces-legales a:hover {
+            color: #FFD700;
         }
 
         /* RESPONSIVO */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
+            .footer-contenedor {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
             h1 { font-size: 1.8rem; }
             nav a { margin: 0 0.6rem; font-size: 0.85rem; }
             section { padding: 2rem 1rem; }
+            .footer-contenedor {
+                grid-template-columns: 1fr;
+            }
+            .footer-linea-inferior {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-enlaces-legales a {
+                margin: 0 0.6rem;
+            }
         }
     </style>
 </head>
@@ -288,10 +382,53 @@
         </div>
     </section>
 
-    <!-- PIE DE PÁGINA -->
+    <!-- PIE DE PÁGINA ESTILO WARNER MUSIC -->
     <footer>
-        <p>© 2026 Krazy Récords Entertainment — Sello Discográfico. Todos los derechos reservados.</p>
-        <p>Fundado y dirigido por JeyZack — México 🇲🇽</p>
+        <div class="footer-contenedor">
+            <div class="footer-marca">
+                <h3>Krazy Récords Entertainment</h3>
+                <p>Sello discográfico independiente dedicado al descubrimiento, producción y representación de artistas.</p>
+                <p>Fundado y dirigido por JeyZack.<br>México.</p>
+            </div>
+
+            <div class="footer-columna">
+                <h4>Entérate</h4>
+                <ul>
+                    <li><a href="#">Noticias</a></li>
+                    <li><a href="#">Anuncios del sello</a></li>
+                    <li><a href="#">Prensa y medios</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-columna">
+                <h4>Escucha</h4>
+                <ul>
+                    <li><a href="https://youtube.com/@TU_CANAL" target="_blank">YouTube Oficial</a></li>
+                    <li><a href="#">Lanzamientos</a></li>
+                    <li><a href="#">Catálogo</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-columna">
+                <h4>Descubre</h4>
+                <ul>
+                    <li><a href="#artistas">Nuestros Artistas</a></li>
+                    <li><a href="#contratacion">Únete al Sello</a></li>
+                    <li><a href="#contacto">Contacto Comercial</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-linea-inferior">
+            <div class="footer-copyright">
+                © 2026 Krazy Récords Entertainment. Todos los derechos reservados.
+            </div>
+            <div class="footer-enlaces-legales">
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos de Uso</a>
+                <a href="#">Política de Cookies</a>
+            </div>
+        </div>
     </footer>
 
 </body>
