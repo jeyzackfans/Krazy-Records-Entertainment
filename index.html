@@ -242,7 +242,7 @@
             margin-top: 2rem;
         }
 
-        /* === PERFIL DE ARTISTA — CONTENIDO IZQUIERDA + VIDEO DERECHA === */
+        /* === PERFIL JEYZACK: FOTO IZQUIERDA + DESCRIPCIÓN DERECHA + VIDEO ABAJO === */
         .perfil-contenedor {
             max-width: 1100px;
             margin: 0 auto;
@@ -263,23 +263,20 @@
             color: #FFD700;
         }
 
-        .perfil-fila {
+        /* FILA SUPERIOR: FOTO + DESCRIPCIÓN */
+        .perfil-fila-superior {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 380px 1fr;
             gap: 3rem;
             align-items: start;
+            justify-content: center;
+            margin: 0 auto;
         }
 
-        /* === COLUMNA IZQUIERDA: FOTO, NOMBRE, DESCRIPCIÓN, REDES === */
-        .perfil-izquierda {
-            text-align: left;
-        }
-
+        /* FOTO IZQUIERDA */
         .perfil-foto {
             width: 100%;
-            max-width: 380px;
             height: 380px;
-            margin-bottom: 2rem;
             border-radius: 8px;
             overflow: hidden;
             border: 2px solid #D4AF37;
@@ -290,6 +287,12 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        /* DESCRIPCIÓN DERECHA */
+        .perfil-info {
+            display: flex;
+            flex-direction: column;
         }
 
         .perfil-nombre {
@@ -307,16 +310,47 @@
         .perfil-descripcion {
             font-size: 1rem;
             color: #ddd;
-            margin: 1.5rem 0 2.5rem;
             line-height: 1.8;
         }
 
+        .perfil-descripcion p {
+            margin-bottom: 1rem;
+        }
+
+        .perfil-descripcion h4 {
+            color: #FFD700;
+            margin: 1.2rem 0 0.5rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .perfil-descripcion ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .perfil-descripcion li {
+            color: #ccc;
+            margin-bottom: 0.3rem;
+        }
+
+        .perfil-descripcion a {
+            color: #D4AF37;
+            text-decoration: none;
+        }
+
+        .perfil-descripcion a:hover {
+            color: #FFD700;
+            text-decoration: underline;
+        }
+
+        /* REDES SOCIALES */
         .redes-titulo {
             color: #FFD700;
             font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 1.2rem;
+            margin: 1.5rem 0 1rem;
             padding-bottom: 0.4rem;
             border-bottom: 2px solid #D4AF37;
             display: inline-block;
@@ -325,7 +359,6 @@
         .redes {
             display: flex;
             gap: 1.5rem;
-            margin-top: 0.5rem;
             flex-wrap: wrap;
         }
 
@@ -362,12 +395,10 @@
             letter-spacing: 1px;
         }
 
-        /* === COLUMNA DERECHA: RECUADRO PARA VIDEOCLIP === */
-        .perfil-derecha {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            padding-top: 4rem;
+        /* VIDEOCLIP ABAJO OCUPANDO TODO EL ANCHO */
+        .perfil-seccion-video {
+            margin-top: 3rem;
+            width: 100%;
         }
 
         .recuadro-video {
@@ -384,7 +415,7 @@
 
         .recuadro-video span {
             color: #D4AF37;
-            font-size: 1rem;
+            font-size: 1.2rem;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
@@ -453,28 +484,28 @@
             max-width: 1200px;
             margin: 2rem auto 0;
             padding-top: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
             color: #777;
             font-size: 0.85rem;
         }
 
         /* RESPONSIVO */
         @media (max-width: 900px) {
-            .perfil-fila {
+            .perfil-fila-superior {
                 grid-template-columns: 1fr;
             }
-            .footer-contenedor { grid-template-columns: repeat(2, 1fr); }
-            nav a { margin: 0 0.5rem; font-size: 0.85rem; padding: 0.4rem 0.7rem; }
+            .footer-contenedor {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            nav a {
+                margin: 0 0.5rem;
+                font-size: 0.85rem;
+                padding: 0.4rem 0.7rem;
+            }
         }
 
         @media (max-width: 600px) {
             h1 { font-size: 1.8rem; }
             .perfil-nombre { font-size: 2rem; }
-            .perfil-foto { max-width: 300px; height: 300px; }
             .footer-contenedor { grid-template-columns: 1fr; }
         }
     </style>
@@ -553,7 +584,7 @@
                     </div>
                     <div class="artista-contenido">
                         <h3>JeyZack</h3>
-                        <a class="boton" data-pagina="perfil-jeyzack">▶ Escuchar</a>
+                        <a class="boton" data-pagina="perfil-jeyzack">▶ Ver perfil</a>
                     </div>
                 </div>
                 <div class="artista-tarjeta">
@@ -562,34 +593,48 @@
                     </div>
                     <div class="artista-contenido">
                         <h3>Vania DarkGirl</h3>
-                        <a class="boton" data-pagina="perfil-vania">▶ Escuchar</a>
+                        <a class="boton" data-pagina="perfil-vania">▶ Ver perfil</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- === PÁGINA: PERFIL JEYZACK — IZQUIERDA + VIDEO DERECHA === -->
+        <!-- === PÁGINA: PERFIL JEYZACK — FOTO IZQUIERDA + DESCRIPCIÓN DERECHA + VIDEO ABAJO === -->
         <div class="pagina" id="pagina-perfil-jeyzack">
             <div class="perfil-contenedor">
                 <a class="volver-btn" data-pagina="artistas">← VOLVER A ARTISTAS</a>
 
-                <div class="perfil-fila">
-                    <!-- COLUMNA IZQUIERDA -->
-                    <div class="perfil-izquierda">
-                        <div class="perfil-foto">
-                            <img src="https://i.imgur.com/FOTO_JEYZACK.jpg" alt="JeyZack" loading="lazy">
-                        </div>
+                <!-- FILA SUPERIOR: FOTO IZQUIERDA + DESCRIPCIÓN DERECHA -->
+                <div class="perfil-fila-superior">
+                    <!-- FOTO -->
+                    <div class="perfil-foto">
+                        <img src="https://i.imgur.com/FOTO_JEYZACK.jpg" alt="JeyZack" loading="lazy">
+                    </div>
+
+                    <!-- DESCRIPCIÓN Y REDES -->
+                    <div class="perfil-info">
                         <h2 class="perfil-nombre">JEYZACK</h2>
-                        <p class="perfil-descripcion">
-                            Fundador, artista y productor de Krazy Récords Entertainment. Referente del Rap y Emo Rap con más de seis años de trayectoria. Su obra completa disponible en el canal oficial del sello.
-                        </p>
+                        <div class="perfil-descripcion">
+                            <p>JeyZack es un artista musical independiente originario del Estado de México (EdoMex) que se especializa en los géneros de Emo Rap, Dark Rap y Rap Sad. Es conocido por sus seguidores como una propuesta mexicana con influencias similares a Lil Peep.</p>
+                            <p>El artista cuenta con presencia en las principales plataformas de streaming y redes sociales, donde comparte sus lanzamientos musicales y contenido digital.</p>
+                            <h4>Canciones populares</h4>
+                            <p>Su catálogo musical está compuesto principalmente por sencillos lanzados de manera digital:</p>
+                            <ul>
+                                <li>Buscándote (Sencillo lanzado en 2025)</li>
+                                <li>Lo Dejamos Como Amigos (Sencillo lanzado en 2025)</li>
+                                <li>Es una Diabla (Sencillo lanzado en 2024)</li>
+                                <li>Freestyle (Sencillo lanzado en 2024)</li>
+                                <li>BOBO y Toma Toma (Lanzamientos de 2024)</li>
+                            </ul>
+                        </div>
+
                         <p class="redes-titulo">SÍGUELO EN SUS REDES SOCIALES</p>
                         <div class="redes">
                             <a class="red" href="#" target="_blank">
                                 <div class="red-logo">f</div>
                                 <span>FACEBOOK</span>
                             </a>
-                            <a class="red" href="#" target="_blank">
+                            <a class="red" href="https://www.instagram.com/jeyzackoficial/" target="_blank">
                                 <div class="red-logo">📷</div>
                                 <span>INSTAGRAM</span>
                             </a>
@@ -603,30 +648,27 @@
                             </a>
                         </div>
                     </div>
+                </div>
 
-                    <!-- COLUMNA DERECHA: RECUADRO VIDEOCLIP -->
-                    <div class="perfil-derecha">
-                        <div class="recuadro-video">
-                            <span>Videoclip</span>
-                            <!-- Aquí pones tu video cuando lo tengas:
-                            <iframe width="100%" height="100%" src="ENLACE_VIDEO" frameborder="0" allowfullscreen></iframe> -->
-                        </div>
+                <!-- VIDEOCLIP ABAJO OCUPANDO TODO EL ANCHO -->
+                <div class="perfil-seccion-video">
+                    <div class="recuadro-video">
+                        <span>Videoclip</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- === PÁGINA: PERFIL VANIA DARKGIRL — IZQUIERDA + VIDEO DERECHA === -->
+        <!-- === PÁGINA: PERFIL VANIA DARKGIRL === -->
         <div class="pagina" id="pagina-perfil-vania">
             <div class="perfil-contenedor">
                 <a class="volver-btn" data-pagina="artistas">← VOLVER A ARTISTAS</a>
 
-                <div class="perfil-fila">
-                    <!-- COLUMNA IZQUIERDA -->
-                    <div class="perfil-izquierda">
-                        <div class="perfil-foto">
-                            <img src="https://i.imgur.com/FOTO_VANIA.jpg" alt="Vania DarkGirl" loading="lazy">
-                        </div>
+                <div class="perfil-fila-superior">
+                    <div class="perfil-foto">
+                        <img src="https://i.imgur.com/FOTO_VANIA.jpg" alt="Vania DarkGirl" loading="lazy">
+                    </div>
+                    <div class="perfil-info">
                         <h2 class="perfil-nombre">VANIA DARKGIRL</h2>
                         <p class="perfil-descripcion">
                             Artista del sello con estilo único y propuesta urbana. Próximamente sus primeros lanzamientos oficiales bajo Krazy Récords Entertainment.
@@ -651,13 +693,11 @@
                             </a>
                         </div>
                     </div>
+                </div>
 
-                    <!-- COLUMNA DERECHA: RECUADRO VIDEOCLIP -->
-                    <div class="perfil-derecha">
-                        <div class="recuadro-video">
-                            <span>Videoclip</span>
-                            <!-- Aquí pones su videoclip cuando lo tengas -->
-                        </div>
+                <div class="perfil-seccion-video">
+                    <div class="recuadro-video">
+                        <span>Videoclip</span>
                     </div>
                 </div>
             </div>
@@ -690,7 +730,7 @@
         <div class="pagina" id="pagina-contratacion">
             <h2>Únete al Sello</h2>
             <div class="tarjeta">
-                <p><strong>Krazy Récords Entertainment</strong> abre sus puertas a nuevos artistas que deseen firmar con un sello independiente.</p>
+                <p><strong>Krazy Récords Entertainment</strong> abre sus puertas a nuevos artistas que deseen formar parte de un sello independiente.</p>
                 <p>Si tienes talento, obra propia, disciplina y compartimos visión en los géneros <strong>Hip Hop, Rap, Trap o Reggaeton</strong>, puedes enviarnos tu material por YouTube.</p>
                 <p>El sello ofrece contrato, respaldo profesional, producción, distribución y crecimiento conjunto.</p>
             </div>
@@ -752,7 +792,7 @@
             </div>
         </div>
         <div class="footer-linea-inferior">
-            <p>© 2026 Krazy Récords Entertainment — Todos los derechos reservados</p>
+            © 2026 Krazy Récords Entertainment — Todos los derechos reservados
         </div>
     </footer>
 
