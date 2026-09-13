@@ -242,7 +242,7 @@
             margin-top: 2rem;
         }
 
-        /* === PERFIL JEYZACK: FOTO IZQUIERDA + DESCRIPCIÓN DERECHA + VIDEO ABAJO === */
+        /* === PERFIL: ESTRUCTURA COMÚN === */
         .perfil-contenedor {
             max-width: 1100px;
             margin: 0 auto;
@@ -263,7 +263,6 @@
             color: #FFD700;
         }
 
-        /* FILA SUPERIOR: FOTO + DESCRIPCIÓN */
         .perfil-fila-superior {
             display: grid;
             grid-template-columns: 380px 1fr;
@@ -273,7 +272,6 @@
             margin: 0 auto;
         }
 
-        /* COLUMNA IZQUIERDA: FOTO + REDES */
         .perfil-columna-izquierda {
             display: flex;
             flex-direction: column;
@@ -281,7 +279,6 @@
             text-align: center;
         }
 
-        /* FOTO */
         .perfil-foto {
             width: 100%;
             height: 380px;
@@ -298,7 +295,6 @@
             object-fit: cover;
         }
 
-        /* REDES SOCIALES DEBAJO DE LA FOTO */
         .redes-titulo {
             color: #FFD700;
             font-size: 1rem;
@@ -350,7 +346,6 @@
             letter-spacing: 1px;
         }
 
-        /* COLUMNA DERECHA: NOMBRE CENTRADO + DESCRIPCIÓN */
         .perfil-columna-derecha {
             display: flex;
             flex-direction: column;
@@ -405,7 +400,7 @@
             text-decoration: underline;
         }
 
-        /* === SECCIÓN DE FOTOS ARRIBA DEL VIDEO === */
+        /* GALERÍA DE FOTOS */
         .seccion-fotos {
             width: 100%;
             margin: 3rem 0;
@@ -446,7 +441,7 @@
             object-fit: cover;
         }
 
-        /* VIDEOCLIP ABAJO OCUPANDO TODO EL ANCHO */
+        /* VIDEOCLIP */
         .perfil-seccion-video {
             margin-top: 0;
             width: 100%;
@@ -628,7 +623,6 @@
         <div class="pagina" id="pagina-artistas">
             <h2>Nuestros Artistas</h2>
 
-            <!-- TARJETAS ORIGINALES -->
             <div class="grid">
                 <div class="tarjeta">
                     <h3>JEYZACK</h3>
@@ -642,7 +636,6 @@
                 </div>
             </div>
 
-            <!-- TARJETAS CON IMAGEN -->
             <div class="artistas-grid">
                 <div class="artista-tarjeta">
                     <div class="artistaimagen">
@@ -670,9 +663,7 @@
             <div class="perfil-contenedor">
                 <a class="volver-btn" data-pagina="artistas">← VOLVER A ARTISTAS</a>
 
-                <!-- FILA SUPERIOR: FOTO+REDES IZQUIERDA | NOMBRE+DESCRIPCIÓN DERECHA -->
                 <div class="perfil-fila-superior">
-                    <!-- COLUMNA IZQUIERDA: FOTO + REDES DEBAJO -->
                     <div class="perfil-columna-izquierda">
                         <div class="perfil-foto">
                             <img src="https://i.imgur.com/FOTO_JEYZACK.jpg" alt="JeyZack" loading="lazy">
@@ -699,7 +690,6 @@
                         </div>
                     </div>
 
-                    <!-- COLUMNA DERECHA: NOMBRE CENTRADO + DESCRIPCIÓN -->
                     <div class="perfil-columna-derecha">
                         <h2 class="perfil-nombre">JEYZACK</h2>
                         <div class="perfil-descripcion">
@@ -718,7 +708,6 @@
                     </div>
                 </div>
 
-                <!-- === SECCIÓN DE FOTOS ARRIBA DEL VIDEO === -->
                 <section class="seccion-fotos">
                     <h3 class="fotos-titulo">GALERÍA</h3>
                     <div class="fotos-cuadricula">
@@ -737,7 +726,6 @@
                     </div>
                 </section>
 
-                <!-- VIDEOCLIP ABAJO OCUPANDO TODO EL ANCHO -->
                 <div class="perfil-seccion-video">
                     <h3 class="titulo-ultimo-tema">ESCUCHA SU ÚLTIMO TEMA</h3>
                     <div class="recuadro-video">
@@ -781,27 +769,26 @@
 
                     <div class="perfil-columna-derecha">
                         <h2 class="perfil-nombre">VANIA DARKGIRL</h2>
-                        <p class="perfil-descripcion">
-                            Artista del sello con estilo único y propuesta urbana. Próximamente sus primeros lanzamientos oficiales bajo Krazy Récords Entertainment.
-                        </p>
+                        <div class="perfil-descripcion">
+                            <p>Artista del sello con estilo único y propuesta urbana. Próximamente sus primeros lanzamientos oficiales bajo Krazy Récords Entertainment.</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- GALERÍA DE FOTOS VANIA -->
                 <section class="seccion-fotos">
                     <h3 class="fotos-titulo">GALERÍA</h3>
                     <div class="fotos-cuadricula">
                         <div class="foto-contenedor">
-                            <img src="https://i.imgur.com/FOTO_VANIA_1.jpg" alt="Vania DarkGirl" loading="lazy">
+                            <img src="https://i.imgur.com/VANIA_FOTO_1.jpg" alt="Vania DarkGirl" loading="lazy">
                         </div>
                         <div class="foto-contenedor">
-                            <img src="https://i.imgur.com/FOTO_VANIA_2.jpg" alt="Vania DarkGirl" loading="lazy">
+                            <img src="https://i.imgur.com/VANIA_FOTO_2.jpg" alt="Vania DarkGirl" loading="lazy">
                         </div>
                         <div class="foto-contenedor">
-                            <img src="https://i.imgur.com/FOTO_VANIA_3.jpg" alt="Vania DarkGirl" loading="lazy">
+                            <img src="https://i.imgur.com/VANIA_FOTO_3.jpg" alt="Vania DarkGirl" loading="lazy">
                         </div>
                         <div class="foto-contenedor">
-                            <img src="https://i.imgur.com/FOTO_VANIA_4.jpg" alt="Vania DarkGirl" loading="lazy">
+                            <img src="https://i.imgur.com/VANIA_FOTO_4.jpg" alt="Vania DarkGirl" loading="lazy">
                         </div>
                     </div>
                 </section>
