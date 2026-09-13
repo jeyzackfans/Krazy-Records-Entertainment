@@ -18,7 +18,6 @@
             line-height: 1.7;
         }
 
-        /* ENCABEZADO SELLO */
         header {
             background-color: #000;
             padding: 2.8rem 1.5rem;
@@ -42,7 +41,6 @@
             text-transform: uppercase;
         }
 
-        /* NAVEGACIÓN */
         nav {
             background-color: #080808;
             padding: 1.1rem;
@@ -74,7 +72,6 @@
             text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
         }
 
-        /* IMAGEN DESTACADA SOLO INICIO */
         .imagen-portada {
             width: 100%;
             border-bottom: 1px solid #1a1a1a;
@@ -92,14 +89,12 @@
             object-fit: cover;
         }
 
-        /* CONTENEDOR DE PÁGINAS */
         .contenedor-paginas {
             max-width: 1100px;
             margin: 0 auto;
             min-height: 60vh;
         }
 
-        /* SECCIONES / PÁGINAS */
         .pagina {
             display: none;
             padding: 3.2rem 1.5rem;
@@ -126,7 +121,6 @@
             letter-spacing: 2px;
         }
 
-        /* TARJETAS ORIGINALES */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -173,7 +167,6 @@
             color: #FFD700;
         }
 
-        /* TARJETAS CON IMAGEN - ARTISTAS */
         .artistas-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -220,7 +213,6 @@
             letter-spacing: 2px;
         }
 
-        /* BOTÓN */
         .boton {
             display: inline-block;
             background: linear-gradient(90deg, #B8860B, #D4AF37, #B8860B);
@@ -247,7 +239,6 @@
             margin-top: 2rem;
         }
 
-        /* === PERFIL: ESTRUCTURA COMÚN === */
         .perfil-contenedor {
             max-width: 1100px;
             margin: 0 auto;
@@ -405,7 +396,6 @@
             text-decoration: underline;
         }
 
-        /* GALERÍA DE FOTOS */
         .seccion-fotos {
             width: 100%;
             margin: 3rem 0;
@@ -446,7 +436,6 @@
             object-fit: cover;
         }
 
-        /* VIDEOCLIP */
         .perfil-seccion-video {
             margin-top: 0;
             width: 100%;
@@ -469,20 +458,16 @@
             border: 2px solid #D4AF37;
             border-radius: 8px;
             background-color: #121212;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden;
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
         }
 
-        .recuadro-video span {
-            color: #D4AF37;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .recuadro-video iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
-        /* PIE DE PÁGINA */
         footer {
             background-color: #121212;
             padding: 3.5rem 1.5rem 2.5rem;
@@ -550,7 +535,6 @@
             font-size: 0.85rem;
         }
 
-        /* RESPONSIVO */
         @media (max-width: 900px) {
             .perfil-fila-superior {
                 grid-template-columns: 1fr;
@@ -571,20 +555,18 @@
         @media (max-width: 600px) {
             h1 { font-size: 1.8rem; }
             .perfil-nombre { font-size: 2rem; }
-            .fotos-cuadricula { grid-template-columns: 1fr 1fr; }
+            .fotos-cuadricula { grid-template-columns: repeat(2, 1fr); }
             .footer-contenedor { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ENCABEZADO -->
     <header>
         <h1>Krazy Récords Entertainment</h1>
         <p class="eslogan">Sello Discográfico — Arte, Talento y Música con Identidad</p>
     </header>
 
-    <!-- MENÚ DE NAVEGACIÓN -->
     <nav>
         <a data-pagina="inicio" class="activo">Inicio</a>
         <a data-pagina="nosotros">Nosotros</a>
@@ -594,15 +576,12 @@
         <a data-pagina="contacto">Contacto</a>
     </nav>
 
-    <!-- IMAGEN DESTACADA SOLO PARA INICIO -->
     <div class="imagen-portada visible">
         <img src="https://i.imgur.com/yvl78oO.jpeg" alt="Krazy Récords Entertainment — Imagen destacada" loading="lazy">
     </div>
 
-    <!-- CONTENEDOR DE PÁGINAS -->
     <main class="contenedor-paginas">
 
-        <!-- === PÁGINA: INICIO === -->
         <div class="pagina visible" id="pagina-inicio">
             <h2>Bienvenidos a Krazy Récords Entertainment</h2>
             <div class="tarjeta">
@@ -615,7 +594,6 @@
             </div>
         </div>
 
-        <!-- === PÁGINA: NOSOTROS === -->
         <div class="pagina" id="pagina-nosotros">
             <h2>El Sello</h2>
             <div class="tarjeta">
@@ -624,10 +602,8 @@
             </div>
         </div>
 
-        <!-- === PÁGINA: ARTISTAS === -->
         <div class="pagina" id="pagina-artistas">
             <h2>Nuestros Artistas</h2>
-
             <div class="grid">
                 <div class="tarjeta">
                     <h3>JEYZACK</h3>
@@ -640,11 +616,10 @@
                     <p class="estado">Estado: Apertura para nuevos artistas</p>
                 </div>
             </div>
-
             <div class="artistas-grid">
                 <div class="artista-tarjeta">
                     <div class="artistaimagen">
-                        <img src="https://i.imgur.com/FOTO_JEYZACK.jpg" alt="JeyZack" loading="lazy">
+                        <img src="https://i.imgur.com/92JAr7d.png" alt="JeyZack" loading="lazy">
                     </div>
                     <div class="artista-contenido">
                         <h3>JeyZack</h3>
@@ -663,7 +638,7 @@
             </div>
         </div>
 
-        <!-- === PÁGINA: PERFIL JEYZACK === -->
+        <!-- === PERFIL JEYZACK CON FOTOS Y VIDEO REAL === -->
         <div class="pagina" id="pagina-perfil-jeyzack">
             <div class="perfil-contenedor">
                 <a class="volver-btn" data-pagina="artistas">← VOLVER A ARTISTAS</a>
@@ -671,7 +646,7 @@
                 <div class="perfil-fila-superior">
                     <div class="perfil-columna-izquierda">
                         <div class="perfil-foto">
-                            <img src="https://i.imgur.com/FOTO_JEYZACK.jpg" alt="JeyZack" loading="lazy">
+                            <img src="https://i.imgur.com/92JAr7d.png" alt="JeyZack" loading="lazy">
                         </div>
 
                         <p class="redes-titulo">SÍGUELO EN SUS REDES SOCIALES</p>
@@ -703,11 +678,11 @@
                             <h4>Canciones populares</h4>
                             <p>Su catálogo musical está compuesto principalmente por sencillos lanzados de manera digital:</p>
                             <ul>
+                                <li>Ahora Me Llama (Sencillo lanzado en 2026)</li>
+                                <li>Una Noche Más (Sencillo lanzado en 2026)</li>
                                 <li>Buscándote (Sencillo lanzado en 2025)</li>
                                 <li>Lo Dejamos Como Amigos (Sencillo lanzado en 2025)</li>
                                 <li>Es una Diabla (Sencillo lanzado en 2024)</li>
-                                <li>Freestyle (Sencillo lanzado en 2024)</li>
-                                <li>BOBO y Toma Toma (Lanzamientos de 2024)</li>
                             </ul>
                         </div>
                     </div>
@@ -717,16 +692,25 @@
                     <h3 class="fotos-titulo">GALERÍA</h3>
                     <div class="fotos-cuadricula">
                         <div class="foto-contenedor">
-                            <img src="https://i.imgur.com/TU_FOTO_1.jpg" alt="JeyZack" loading="lazy">
+                            <img src="https://i.imgur.com/T2EOHS8.png" alt="JeyZack" loading="lazy">
                         </div>
                         <div class="foto-contenedor">
-                            <img src="https://i.imgur.com/TU_FOTO_2.jpg" alt="JeyZack" loading="lazy">
+                            <img src="https://i.imgur.com/NxCzRkO.jpeg" alt="JeyZack" loading="lazy">
                         </div>
                         <div class="foto-contenedor">
-                            <img src="https://i.imgur.com/TU_FOTO_3.jpg" alt="JeyZack" loading="lazy">
+                            <img src="https://i.imgur.com/BNuvRPl.jpeg" alt="JeyZack" loading="lazy">
                         </div>
                         <div class="foto-contenedor">
-                            <img src="https://i.imgur.com/TU_FOTO_4.jpg" alt="JeyZack" loading="lazy">
+                            <img src="https://i.imgur.com/gPJhRoQ.png" alt="JeyZack" loading="lazy">
+                        </div>
+                        <div class="foto-contenedor">
+                            <img src="https://i.imgur.com/ZyTFlet.jpeg" alt="JeyZack" loading="lazy">
+                        </div>
+                        <div class="foto-contenedor">
+                            <img src="https://i.imgur.com/I3fG8zy.jpeg" alt="JeyZack" loading="lazy">
+                        </div>
+                        <div class="foto-contenedor">
+                            <img src="https://i.imgur.com/i8qxOpP.jpeg" alt="JeyZack" loading="lazy">
                         </div>
                     </div>
                 </section>
@@ -734,23 +718,20 @@
                 <div class="perfil-seccion-video">
                     <h3 class="titulo-ultimo-tema">ESCUCHA SU ÚLTIMO TEMA</h3>
                     <div class="recuadro-video">
-                        <span>Videoclip</span>
+                        <iframe src="https://www.youtube.com/embed/LfJkMsDj7jk" title="JeyZack - Ahora Me Llama" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- === PÁGINA: PERFIL VANIA DARKGIRL === -->
         <div class="pagina" id="pagina-perfil-vania">
             <div class="perfil-contenedor">
                 <a class="volver-btn" data-pagina="artistas">← VOLVER A ARTISTAS</a>
-
                 <div class="perfil-fila-superior">
                     <div class="perfil-columna-izquierda">
                         <div class="perfil-foto">
                             <img src="https://i.imgur.com/FOTO_VANIA.jpg" alt="Vania DarkGirl" loading="lazy">
                         </div>
-
                         <p class="redes-titulo">SÍGUELA EN SUS REDES SOCIALES</p>
                         <div class="redes">
                             <a class="red" href="#" target="_blank">
@@ -771,7 +752,6 @@
                             </a>
                         </div>
                     </div>
-
                     <div class="perfil-columna-derecha">
                         <h2 class="perfil-nombre">VANIA DARKGIRL</h2>
                         <div class="perfil-descripcion">
@@ -781,7 +761,6 @@
                         </div>
                     </div>
                 </div>
-
                 <section class="seccion-fotos">
                     <h3 class="fotos-titulo">GALERÍA</h3>
                     <div class="fotos-cuadricula">
@@ -799,7 +778,6 @@
                         </div>
                     </div>
                 </section>
-
                 <div class="perfil-seccion-video">
                     <h3 class="titulo-ultimo-tema">ESCUCHA SU ÚLTIMO TEMA</h3>
                     <div class="recuadro-video">
@@ -809,7 +787,6 @@
             </div>
         </div>
 
-        <!-- === PÁGINA: SERVICIOS === -->
         <div class="pagina" id="pagina-servicios">
             <h2>Qué Ofrecemos</h2>
             <div class="grid">
@@ -832,7 +809,6 @@
             </div>
         </div>
 
-        <!-- === PÁGINA: ÚNETE AL SELLO === -->
         <div class="pagina" id="pagina-contratacion">
             <h2>Únete al Sello</h2>
             <div class="tarjeta">
@@ -846,7 +822,6 @@
             </div>
         </div>
 
-        <!-- === PÁGINA: CONTACTO === -->
         <div class="pagina" id="pagina-contacto">
             <h2>Contacto Profesional</h2>
             <div class="grid">
@@ -868,7 +843,6 @@
 
     </main>
 
-    <!-- PIE DE PÁGINA -->
     <footer>
         <div class="footer-contenedor">
             <div class="footer-marca">
@@ -906,7 +880,6 @@
         </div>
     </footer>
 
-    <!-- SCRIPT DE NAVEGACIÓN -->
     <script>
         function mostrarPagina(nombrePagina) {
             document.querySelectorAll('.pagina').forEach(pagina => pagina.classList.remove('visible'));
@@ -917,7 +890,6 @@
                 if (enlace.dataset.pagina === nombrePagina) enlace.classList.add('activo');
             });
 
-            // Mostrar la imagen de portada solo en la página de inicio
             const imagenPortada = document.querySelector('.imagen-portada');
             if (nombrePagina === 'inicio') {
                 imagenPortada.classList.add('visible');
