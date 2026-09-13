@@ -74,10 +74,15 @@
             text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
         }
 
-        /* IMAGEN DESTACADA */
+        /* IMAGEN DESTACADA SOLO INICIO */
         .imagen-portada {
             width: 100%;
             border-bottom: 1px solid #1a1a1a;
+            display: none;
+        }
+
+        .imagen-portada.visible {
+            display: block;
         }
 
         .imagen-portada img {
@@ -589,8 +594,8 @@
         <a data-pagina="contacto">Contacto</a>
     </nav>
 
-    <!-- IMAGEN DESTACADA -->
-    <div class="imagen-portada">
+    <!-- IMAGEN DESTACADA SOLO PARA INICIO -->
+    <div class="imagen-portada visible">
         <img src="https://i.imgur.com/yvl78oO.jpeg" alt="Krazy Récords Entertainment — Imagen destacada" loading="lazy">
     </div>
 
@@ -907,6 +912,15 @@
             document.querySelectorAll('nav a').forEach(enlace => {
                 if (enlace.dataset.pagina === nombrePagina) enlace.classList.add('activo');
             });
+
+            // Mostrar la imagen de portada solo en la página de inicio
+            const imagenPortada = document.querySelector('.imagen-portada');
+            if (nombrePagina === 'inicio') {
+                imagenPortada.classList.add('visible');
+            } else {
+                imagenPortada.classList.remove('visible');
+            }
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
