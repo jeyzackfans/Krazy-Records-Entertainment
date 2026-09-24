@@ -192,12 +192,14 @@
             width: 100%;
             height: 320px;
             background-color: #1a1a1a;
+            overflow: hidden;
         }
 
         .artistaimagen img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center top; /* Alineación profesional: centro y parte superior */
         }
 
         .artista-contenido {
@@ -289,6 +291,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center top; /* Foto centrada y recortada profesionalmente */
         }
 
         .redes-titulo {
@@ -434,6 +437,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center center;
         }
 
         .perfil-seccion-video {
@@ -728,7 +732,7 @@
             </div>
         </div>
 
-        <!-- PERFIL DE VANIA DARKGIRL → COMPLETO -->
+        <!-- PERFIL DE VANIA DARKGIRL → FOTO POSICIONADA PROFESIONALMENTE -->
         <div class="pagina" id="pagina-perfil-vania">
             <div class="perfil-contenedor">
                 <a class="volver-btn" data-pagina="artistas">← Volver a artistas</a>
@@ -765,7 +769,7 @@
                         <div class="perfil-descripcion">
                             <p>Vania DarkGirl es una artista musical independiente originaria del Estado de México, dedicada al género de Emo Rap. Con una voz que transmite sentimiento, melancolía y una identidad oscura y auténtica, Vania expresa en cada letra esas emociones profundas que a veces cuesta poner en palabras.</p>
                             <p>Su estilo mezcla melodías conmovedoras y rimas que conectan directamente con el alma, consolidándose como una de las nuevas voces más prometedoras del género en la escena mexicana.</p>
-                            <p>Su primer tema oficial <strong>"Mi Cara No Miente"</strong> ya está disponible en el canal de YouTube del sello. Pronto también estará en todas las plataformas digitales de streaming para que lo lleves contigo a donde vayas.</p>
+                            <p>Su primer tema oficial <strong>"Mi Cara No Miente"</strong> ya está disponible en el canal de YouTube del sello. Pronto también estará en todas las plataformas digitales de streaming.</p>
                             <h4>Temas disponibles</h4>
                             <ul>
                                 <li>Mi Cara No Miente (Sencillo lanzado en 2026)</li>
@@ -819,29 +823,29 @@
         </div>
 
         <div class="pagina" id="pagina-servicios">
-            <h2>Qué ofrecemos</h2>
+            <h2>Servicios</h2>
             <div class="grid">
                 <div class="tarjeta">
-                    <h3>Representación y apoyo</h3>
+                    <h3>Representación y Apoyo</h3>
                     <p>Te respaldamos como artista y te guiamos en tu camino musical, basado en confianza y compromiso mutuo.</p>
                 </div>
                 <div class="tarjeta">
-                    <h3>Producción musical</h3>
+                    <h3>Producción Musical</h3>
                     <p>Producción profesional, composición, grabación y calidad en cada lanzamiento.</p>
                 </div>
                 <div class="tarjeta">
-                    <h3>Distribución y promoción</h3>
+                    <h3>Distribución y Promoción</h3>
                     <p>Publicación en plataformas digitales y canal oficial de YouTube: KrazyrecordsEntertainment.</p>
                 </div>
                 <div class="tarjeta">
-                    <h3>Comisiones personalizadas</h3>
+                    <h3>Comisiones Personalizadas</h3>
                     <p>Creación de canciones a medida para proyectos, artistas o público en general.</p>
                 </div>
             </div>
         </div>
 
         <div class="pagina" id="pagina-contratacion">
-            <h2>Únete al sello</h2>
+            <h2>Únete al Sello</h2>
             <div class="tarjeta">
                 <p><strong>Krazy Récords Entertainment</strong> abre sus puertas a nuevos artistas que deseen formar parte de un sello independiente.</p>
                 <p>Si tienes talento, obra propia, disciplina y compartimos visión en los géneros <strong>Hip Hop, Rap, Trap o Reggaeton</strong>, <strong>envíanos tu material por correo electrónico</strong>.</p>
@@ -854,15 +858,15 @@
         </div>
 
         <div class="pagina" id="pagina-contacto">
-            <h2>Contacto profesional</h2>
+            <h2>Contacto Profesional</h2>
             <div class="grid">
                 <div class="tarjeta">
-                    <h3>Canal oficial</h3>
+                    <h3>Canal Oficial</h3>
                     <p>Toda la producción oficial del sello y sus artistas se publica aquí.</p>
                     <p>🎬 youtube.com/@KrazyrecordsEntertainment</p>
                 </div>
                 <div class="tarjeta">
-                    <h3>Correo del sello</h3>
+                    <h3>Correo del Sello</h3>
                     <p>Propuestas, mensajes y contacto directo.</p>
                     <p>📧 TU_CORREO@ejemplo.com</p>
                 </div>
@@ -935,8 +939,10 @@
 
         document.querySelectorAll('nav a, [data-pagina]').forEach(enlace => {
             enlace.addEventListener('click', e => {
-                e.preventDefault();
-                mostrarPagina(enlace.dataset.pagina);
+                if (enlace.dataset.pagina) {
+                    e.preventDefault();
+                    mostrarPagina(enlace.dataset.pagina);
+                }
             });
         });
     </script>
