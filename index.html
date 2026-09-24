@@ -195,7 +195,6 @@
             overflow: hidden;
         }
 
-        /* JEYZACK — IGUAL */
         .jeyzack-imagen img {
             width: 100%;
             height: 100%;
@@ -203,7 +202,6 @@
             object-position: center;
         }
 
-        /* VANIA — ENFOQUE EN ROSTRO */
         .vania-imagen img {
             width: 100%;
             height: 100%;
@@ -296,7 +294,6 @@
             margin-bottom: 1.5rem;
         }
 
-        /* PERFIL JEYZACK — IGUAL */
         .perfil-foto.jeyzack img {
             width: 100%;
             height: 100%;
@@ -304,7 +301,6 @@
             object-position: center;
         }
 
-        /* PERFIL VANIA — ENFOQUE EN ROSTRO */
         .perfil-foto.vania img {
             width: 100%;
             height: 100%;
@@ -490,6 +486,126 @@
             border: none;
         }
 
+        /* VENTANA MODAL FORMULARIO */
+        .modal-fondo {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-fondo.activo {
+            display: flex;
+        }
+
+        .modal-ventana {
+            background-color: #121212;
+            border: 2px solid #D4AF37;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 550px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2rem;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.25);
+            animation: aparecer 0.3s ease forwards;
+        }
+
+        .modal-cerrar {
+            text-align: right;
+            margin-bottom: 1rem;
+        }
+
+        .modal-cerrar-btn {
+            background: none;
+            border: none;
+            color: #D4AF37;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-cerrar-btn:hover {
+            color: #FFD700;
+        }
+
+        .modal-titulo {
+            color: #FFD700;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #D4AF37;
+        }
+
+        .form-grupo {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-etiqueta {
+            display: block;
+            color: #ccc;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.9rem;
+            background-color: #1a1a1a;
+            border: 1px solid #444;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #D4AF37;
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-ayuda {
+            color: #888;
+            font-size: 0.8rem;
+            margin-top: 0.4rem;
+        }
+
+        .form-botones {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-cancelar {
+            background: transparent;
+            border: 1px solid #666;
+            color: #ccc;
+        }
+
+        .btn-cancelar:hover {
+            border-color: #D4AF37;
+            color: #FFD700;
+        }
+
         footer {
             background-color: #121212;
             padding: 3.5rem 1.5rem 2.5rem;
@@ -579,6 +695,7 @@
             .perfil-nombre { font-size: 2rem; }
             .fotos-cuadricula { grid-template-columns: repeat(2, 1fr); }
             .footer-contenedor { grid-template-columns: 1fr; }
+            .form-botones { flex-direction: column; }
         }
     </style>
 </head>
@@ -660,7 +777,6 @@
             </div>
         </div>
 
-        <!-- PERFIL JEYZACK — REDES COMPLETAS -->
         <div class="pagina" id="pagina-perfil-jeyzack">
             <div class="perfil-contenedor">
                 <a class="volver-btn" data-pagina="artistas">← Volver a artistas</a>
@@ -759,7 +875,6 @@
             </div>
         </div>
 
-        <!-- PERFIL VANIA — REDES ACTUALIZADAS SIN INSTAGRAM + FOTO EN ROSTRO -->
         <div class="pagina" id="pagina-perfil-vania">
             <div class="perfil-contenedor">
                 <a class="volver-btn" data-pagina="artistas">← Volver a artistas</a>
@@ -875,12 +990,12 @@
             <h2>Únete al Sello</h2>
             <div class="tarjeta">
                 <p><strong>Krazy Récords Entertainment</strong> abre sus puertas a nuevos artistas que deseen formar parte de un sello independiente.</p>
-                <p>Si tienes talento, obra propia, disciplina y compartimos visión en los géneros <strong>Hip Hop, Rap, Trap o Reggaeton</strong>, <strong>envíanos tu material por correo electrónico</strong>.</p>
+                <p>Si tienes talento, obra propia, disciplina y compartimos visión en los géneros <strong>Hip Hop, Rap, Trap o Reggaeton</strong>, envíanos tu material por correo electrónico.</p>
                 <p>Te ofrecemos: <strong>respaldo profesional, apoyo en producción, distribución y crecimiento conjunto</strong>, basado en confianza, compromiso y trabajo en equipo.</p>
                 <p style="margin-top: 1rem; color: #aaa; font-style: italic;">Todo comienza con una buena canción y confianza mutua. Crecemos juntos.</p>
             </div>
             <div class="centro">
-                <a class="boton" href="mailto:TU_CORREO@ejemplo.com">✉️ Enviar propuesta por correo</a>
+                <button class="boton" id="abrirFormulario">✉️ Enviar propuesta por correo</button>
             </div>
         </div>
 
@@ -895,15 +1010,59 @@
                 <div class="tarjeta">
                     <h3>Correo del Sello</h3>
                     <p>Propuestas, mensajes y contacto directo.</p>
-                    <p>📧 TU_CORREO@ejemplo.com</p>
+                    <p>📧 Krazyrecordsoficial@gmail.com</p>
                 </div>
             </div>
             <div class="centro">
-                <a class="boton" href="mailto:TU_CORREO@ejemplo.com">✉️ Escribir por correo</a>
+                <button class="boton" id="abrirFormularioContacto">✉️ Escribir por correo</button>
             </div>
         </div>
 
     </main>
+
+    <!-- VENTANA FORMULARIO -->
+    <div class="modal-fondo" id="ventanaFormulario">
+        <div class="modal-ventana">
+            <div class="modal-cerrar">
+                <button class="modal-cerrar-btn" id="cerrarFormulario">&times;</button>
+            </div>
+            <h3 class="modal-titulo">Enviar tu propuesta</h3>
+            
+            <form id="formPropuesta">
+                <div class="form-grupo">
+                    <label class="form-etiqueta">Tu nombre o nombre artístico *</label>
+                    <input type="text" id="nombreArtista" class="form-input" placeholder="Ej: Tu Nombre / Nombre Artístico" required>
+                </div>
+
+                <div class="form-grupo">
+                    <label class="form-etiqueta">Tu correo electrónico *</label>
+                    <input type="email" id="remitenteCorreo" class="form-input" placeholder="tu@correo.com" required>
+                </div>
+
+                <div class="form-grupo">
+                    <label class="form-etiqueta">Enlaces a tu música / redes</label>
+                    <textarea id="enlacesMaterial" class="form-textarea" placeholder="Pega aquí los enlaces de YouTube, Spotify, TikTok, etc. separados por salto de línea"></textarea>
+                    <p class="form-ayuda">Puedes incluir enlaces a videos, canciones, perfiles de redes o cualquier material que quieras compartir.</p>
+                </div>
+
+                <div class="form-grupo">
+                    <label class="form-etiqueta">Mensaje / Descripción</label>
+                    <textarea id="descripcionMensaje" class="form-textarea" placeholder="Cuéntanos sobre ti, tu estilo, experiencia o cualquier información que consideres importante"></textarea>
+                </div>
+
+                <div class="form-grupo">
+                    <label class="form-etiqueta">Archivos adjuntos (opcional)</label>
+                    <input type="file" id="archivosAdjuntos" class="form-input" multiple>
+                    <p class="form-ayuda">Selecciona archivos de audio, video, imagen o documentos. Se adjuntarán en el correo.</p>
+                </div>
+
+                <div class="form-botones">
+                    <button type="button" class="boton btn-cancelar" id="cancelarFormulario">Cancelar</button>
+                    <button type="submit" class="boton">📤 Abrir correo y enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-contenedor">
@@ -972,7 +1131,61 @@
                 }
             });
         });
-    </script>
 
-</body>
-</html>
+        // VENTANA FORMULARIO
+        const ventana = document.getElementById('ventanaFormulario');
+        const abrirForm = document.getElementById('abrirFormulario');
+        const abrirFormContacto = document.getElementById('abrirFormularioContacto');
+        const cerrarForm = document.getElementById('cerrarFormulario');
+        const cancelarForm = document.getElementById('cancelarFormulario');
+        const formulario = document.getElementById('formPropuesta');
+        const CORREO_DESTINO = 'Krazyrecordsoficial@gmail.com';
+
+        function abrirVentana() {
+            ventana.classList.add('activo');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function cerrarVentana() {
+            ventana.classList.remove('activo');
+            document.body.style.overflow = '';
+            formulario.reset();
+        }
+
+        if (abrirForm) abrirForm.addEventListener('click', abrirVentana);
+        if (abrirFormContacto) abrirFormContacto.addEventListener('click', abrirVentana);
+        if (cerrarForm) cerrarForm.addEventListener('click', cerrarVentana);
+        if (cancelarForm) cancelarForm.addEventListener('click', cerrarVentana);
+
+        ventana.addEventListener('click', e => {
+            if (e.target === ventana) cerrarVentana();
+        });
+
+        formulario.addEventListener('submit', e => {
+            e.preventDefault();
+
+            const nombre = document.getElementById('nombreArtista').value.trim();
+            const correoRemitente = document.getElementById('remitenteCorreo').value.trim();
+            const enlaces = document.getElementById('enlacesMaterial').value.trim();
+            const descripcion = document.getElementById('descripcionMensaje').value.trim();
+            const archivos = document.getElementById('archivosAdjuntos').files;
+
+            if (!nombre || !correoRemitente) {
+                alert('Por favor completa tu nombre y correo electrónico');
+                return;
+            }
+
+            // Construir el cuerpo del mensaje
+            let cuerpo = `Nombre artístico: ${nombre}\nCorreo de contacto: ${correoRemitente}\n\n`;
+            
+            if (enlaces) {
+                cuerpo += `--- Enlaces de material ---\n${enlaces}\n\n`;
+            }
+            
+            if (descripcion) {
+                cuerpo += `--- Mensaje / Descripción ---\n${descripcion}\n\n`;
+            }
+
+            if (archivos.length > 0) {
+                cuerpo += `--- Archivos adjuntos: ${archivos.length} archivo(s) ---\n`;
+                cuerpo += `Nota: Los archivos se deben adjuntar manualmente en
