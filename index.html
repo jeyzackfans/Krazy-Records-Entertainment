@@ -400,6 +400,8 @@
 </footer>
 
 <script>
+const CORREO_DESTINO = 'Krazyrecordsoficial@gmail.com';
+
 function mostrarPagina(nombrePagina) {
     document.querySelectorAll('.pagina').forEach(p => p.classList.remove('visible'));
     document.querySelectorAll('nav a').forEach(a => a.classList.remove('activo'));
@@ -410,35 +412,45 @@ function mostrarPagina(nombrePagina) {
     portada.classList.toggle('visible', nombrePagina==='inicio');
     window.scrollTo({top:0, behavior:'smooth'});
 }
+
 document.querySelectorAll('nav a, [data-pagina]').forEach(enlace => {
     enlace.addEventListener('click', e => {
         if(enlace.dataset.pagina) { e.preventDefault(); mostrarPagina(enlace.dataset.pagina); }
     });
 });
+
 const ventana = document.getElementById('ventanaFormulario');
 const abrirForm = document.getElementById('abrirFormulario');
 const abrirFormContacto = document.getElementById('abrirFormularioContacto');
 const cerrarForm = document.getElementById('cerrarFormulario');
 const cancelarForm = document.getElementById('cancelarFormulario');
 const formulario = document.getElementById('formPropuesta');
-const CORREO_DESTINO = 'Krazyrecordsoficial@gmail.com';
+
 function abrirVentana() { ventana.classList.add('activo'); document.body.style.overflow='hidden'; }
 function cerrarVentana() { ventana.classList.remove('activo'); document.body.style.overflow=''; formulario.reset(); }
+
 if(abrirForm) abrirForm.addEventListener('click', abrirVentana);
 if(abrirFormContacto) abrirFormContacto.addEventListener('click', abrirVentana);
 if(cerrarForm) cerrarForm.addEventListener('click', cerrarVentana);
 if(cancelarForm) cancelarForm.addEventListener('click', cerrarVentana);
 ventana.addEventListener('click', e => { if(e.target===ventana) cerrarVentana(); });
+
 formulario.addEventListener('submit', e => {
     e.preventDefault();
     const nombre = document.getElementById('nombreArtista').value.trim();
     const correoRemitente = document.getElementById('remitenteCorreo').value.trim();
     const enlaces = document.getElementById('enlacesMaterial').value.trim();
     const descripcion = document.getElementById('descripcionMensaje').value.trim();
-    if(!nombre || !correoRemitente) { alert('Completa tu nombre y correo'); return; }
+    
+    if(!nombre || !correoRemitente) { 
+        alert('⚠️ Por favor completa tu nombre y correo electrónico'); 
+        return; 
+    }
+    
     let cuerpo = `Nombre artístico: ${nombre}%0D%0ACorreo de contacto: ${correoRemitente}%0D%0A%0D%0A`;
     if(enlaces) cuerpo += `--- Enlaces de material ---%0D%0A${enlaces.replace(/\n/g,'%0D%0A')}%0D%0A%0D%0A`;
     if(descripcion) cuerpo += `--- Mensaje / Descripción ---%0D%0A${descripcion.replace(/\n/g,'%0D%0A')}%0D%0A`;
+    
     const asunto = encodeURIComponent(`Propuesta de artista — ${nombre}`);
     window.location.href = `mailto:${CORREO_DESTINO}?subject=${asunto}&body=${cuerpo}`;
     cerrarVentana();
