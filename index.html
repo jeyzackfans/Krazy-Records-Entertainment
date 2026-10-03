@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krazy Récords Entertainment — Sello Discográfico</title>
+    <title>Krazy Récords Entertainment | Sello Discográfico</title>
+    <meta name="description" content="Sello discográfico independiente — Descubrimos, producimos y representamos artistas de Hip Hop, Rap, Trap y Reggaeton.">
+    
+    <!-- Imagen y logo para Google y redes sociales -->
+    <meta property="og:image" content="https://i.imgur.com/TSm8gWV.jpeg">
+    <meta property="og:title" content="Krazy Récords Entertainment">
+    <meta property="og:description" content="Sello discográfico independiente fundado por JeyZack.">
+    <meta property="og:type" content="website">
+    
+    <!-- Logo que aparece en la pestaña del navegador -->
+    <link rel="icon" type="image/jpeg" href="https://i.imgur.com/TSm8gWV.jpeg">
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', 'Montserrat', sans-serif; }
         body { background-color: #000; color: #f5f5f5; line-height: 1.7; }
@@ -38,6 +49,7 @@
         .artista-contenido h3 { color: #FFD700; font-size: 1.3rem; margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 2px; }
         .boton { display: inline-block; background: linear-gradient(90deg,#B8860B,#D4AF37,#B8860B); color: #000; padding: .8rem 2rem; border-radius: 4px; text-decoration: none; font-weight: bold; text-transform: uppercase; letter-spacing: 1.5px; transition: .3s; border: none; cursor: pointer; font-size: .95rem; }
         .boton:hover { transform: scale(1.03); box-shadow: 0 0 15px rgba(212,175,55,.5); }
+        .boton:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
         .centro { text-align: center; margin-top: 2rem; }
         .perfil-contenedor { max-width: 1100px; margin: 0 auto; padding: 1rem 1.5rem 3rem; }
         .volver-btn { display: inline-block; color: #D4AF37; text-decoration: none; font-weight: 600; text-transform: uppercase; margin-bottom: 2rem; transition: .3s; }
@@ -80,6 +92,8 @@
         .form-input:focus, .form-textarea:focus { outline: none; border-color: #D4AF37; box-shadow: 0 0 8px rgba(212,175,55,.2); }
         .form-textarea { min-height: 120px; resize: vertical; }
         .form-ayuda { color: #888; font-size: .8rem; margin-top: .4rem; }
+        .mensaje-exito { color: #4ADE80; background: rgba(74,222,128,.1); border: 1px solid #4ADE80; padding: 1rem; border-radius: 5px; margin-bottom: 1rem; display: none; }
+        .mensaje-error { color: #F87171; background: rgba(248,113,113,.1); border: 1px solid #F87171; padding: 1rem; border-radius: 5px; margin-bottom: 1rem; display: none; }
         .form-botones { display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; }
         .btn-cancelar { background: transparent; border: 1px solid #666; color: #ccc; }
         .btn-cancelar:hover { border-color: #D4AF37; color: #FFD700; }
@@ -307,12 +321,12 @@
     <h2>Únete al Sello</h2>
     <div class="tarjeta">
         <p><strong>Krazy Récords Entertainment</strong> abre sus puertas a nuevos artistas que deseen formar parte de un sello independiente.</p>
-        <p>Si tienes talento, obra propia, disciplina y compartimos visión en los géneros <strong>Hip Hop, Rap, Trap o Reggaeton</strong>, envíanos tu material por correo electrónico.</p>
+        <p>Si tienes talento, obra propia, disciplina y compartimos visión en los géneros <strong>Hip Hop, Rap, Trap o Reggaeton</strong>, envíanos tu propuesta a través del formulario.</p>
         <p>Te ofrecemos: <strong>respaldo profesional, apoyo en producción, distribución y crecimiento conjunto</strong>, basado en confianza, compromiso y trabajo en equipo.</p>
         <p style="margin-top:1rem; color:#aaa; font-style:italic;">Todo comienza con una buena canción y confianza mutua. Crecemos juntos.</p>
     </div>
     <div class="centro">
-        <button class="boton" id="abrirFormulario">✉️ Enviar propuesta por correo</button>
+        <button class="boton" id="abrirFormulario">✉️ Enviar propuesta</button>
     </div>
 </div>
 
@@ -323,7 +337,7 @@
         <div class="tarjeta"><h3>Correo del Sello</h3><p>Propuestas, mensajes y contacto directo.</p><p>📧 Krazyrecordsoficial@gmail.com</p></div>
     </div>
     <div class="centro">
-        <button class="boton" id="abrirFormularioContacto">✉️ Escribir por correo</button>
+        <button class="boton" id="abrirFormularioContacto">✉️ Escribirnos</button>
     </div>
 </div>
 
@@ -333,32 +347,31 @@
     <div class="modal-ventana">
         <div class="modal-cerrar"><button class="modal-cerrar-btn" id="cerrarFormulario">&times;</button></div>
         <h3 class="modal-titulo">Enviar tu propuesta</h3>
-        <form id="formPropuesta">
+        
+        <div class="mensaje-exito" id="mensajeExito">✅ ¡Mensaje enviado! Te responderemos pronto a tu correo.</div>
+        <div class="mensaje-error" id="mensajeError">❌ Hubo un error. Inténtalo de nuevo o escríbenos directo a Krazyrecordsoficial@gmail.com</div>
+        
+        <form action="https://formspree.io/f/xdoqpgkl" method="POST" id="formPropuesta">
             <div class="form-grupo">
                 <label class="form-etiqueta">Tu nombre o nombre artístico *</label>
-                <input type="text" id="nombreArtista" class="form-input" placeholder="Ej: Tu Nombre / Nombre Artístico" required>
+                <input type="text" name="nombre" id="nombreArtista" class="form-input" placeholder="Ej: Tu Nombre / Nombre Artístico" required>
             </div>
             <div class="form-grupo">
                 <label class="form-etiqueta">Tu correo electrónico *</label>
-                <input type="email" id="remitenteCorreo" class="form-input" placeholder="tu@correo.com" required>
+                <input type="email" name="correo" id="remitenteCorreo" class="form-input" placeholder="tu@correo.com" required>
             </div>
             <div class="form-grupo">
                 <label class="form-etiqueta">Enlaces a tu música / redes</label>
-                <textarea id="enlacesMaterial" class="form-textarea" placeholder="Pega aquí los enlaces de YouTube, Spotify, TikTok, etc. separados por salto de línea"></textarea>
-                <p class="form-ayuda">Puedes incluir enlaces a videos, canciones, perfiles de redes o cualquier material que quieras compartir.</p>
+                <textarea name="enlaces" id="enlacesMaterial" class="form-textarea" placeholder="Pega aquí los enlaces de YouTube, Spotify, TikTok, etc. separados por salto de línea"></textarea>
+                <p class="form-ayuda">Puedes incluir enlaces a videos, canciones o perfiles de redes.</p>
             </div>
             <div class="form-grupo">
                 <label class="form-etiqueta">Mensaje / Descripción</label>
-                <textarea id="descripcionMensaje" class="form-textarea" placeholder="Cuéntanos sobre ti, tu estilo, experiencia o cualquier información que consideres importante"></textarea>
-            </div>
-            <div class="form-grupo">
-                <label class="form-etiqueta">Archivos adjuntos (opcional)</label>
-                <input type="file" id="archivosAdjuntos" class="form-input" multiple>
-                <p class="form-ayuda">Selecciona archivos. Después de abrir el correo, adjúntalos desde tu cliente de correo.</p>
+                <textarea name="mensaje" id="descripcionMensaje" class="form-textarea" placeholder="Cuéntanos sobre ti, tu estilo, experiencia o cualquier información que consideres importante"></textarea>
             </div>
             <div class="form-botones">
                 <button type="button" class="boton btn-cancelar" id="cancelarFormulario">Cancelar</button>
-                <button type="submit" class="boton">📤 Abrir correo y enviar</button>
+                <button type="submit" class="boton" id="botonEnviar">📤 Enviar mensaje</button>
             </div>
         </form>
     </div>
@@ -400,8 +413,6 @@
 </footer>
 
 <script>
-const CORREO_DESTINO = 'Krazyrecordsoficial@gmail.com';
-
 function mostrarPagina(nombrePagina) {
     document.querySelectorAll('.pagina').forEach(p => p.classList.remove('visible'));
     document.querySelectorAll('nav a').forEach(a => a.classList.remove('activo'));
@@ -425,9 +436,27 @@ const abrirFormContacto = document.getElementById('abrirFormularioContacto');
 const cerrarForm = document.getElementById('cerrarFormulario');
 const cancelarForm = document.getElementById('cancelarFormulario');
 const formulario = document.getElementById('formPropuesta');
+const mensajeExito = document.getElementById('mensajeExito');
+const mensajeError = document.getElementById('mensajeError');
+const botonEnviar = document.getElementById('botonEnviar');
 
-function abrirVentana() { ventana.classList.add('activo'); document.body.style.overflow='hidden'; }
-function cerrarVentana() { ventana.classList.remove('activo'); document.body.style.overflow=''; formulario.reset(); }
+function abrirVentana() { 
+    ventana.classList.add('activo'); 
+    document.body.style.overflow='hidden'; 
+    mensajeExito.style.display = 'none';
+    mensajeError.style.display = 'none';
+    formulario.style.display = 'block';
+    botonEnviar.disabled = false;
+    botonEnviar.textContent = '📤 Enviar mensaje';
+}
+
+function cerrarVentana() { 
+    ventana.classList.remove('activo'); 
+    document.body.style.overflow=''; 
+    formulario.reset();
+    mensajeExito.style.display = 'none';
+    mensajeError.style.display = 'none';
+}
 
 if(abrirForm) abrirForm.addEventListener('click', abrirVentana);
 if(abrirFormContacto) abrirFormContacto.addEventListener('click', abrirVentana);
@@ -435,25 +464,33 @@ if(cerrarForm) cerrarForm.addEventListener('click', cerrarVentana);
 if(cancelarForm) cancelarForm.addEventListener('click', cerrarVentana);
 ventana.addEventListener('click', e => { if(e.target===ventana) cerrarVentana(); });
 
-formulario.addEventListener('submit', e => {
+formulario.addEventListener('submit', async e => {
     e.preventDefault();
-    const nombre = document.getElementById('nombreArtista').value.trim();
-    const correoRemitente = document.getElementById('remitenteCorreo').value.trim();
-    const enlaces = document.getElementById('enlacesMaterial').value.trim();
-    const descripcion = document.getElementById('descripcionMensaje').value.trim();
     
-    if(!nombre || !correoRemitente) { 
-        alert('⚠️ Por favor completa tu nombre y correo electrónico'); 
-        return; 
+    botonEnviar.disabled = true;
+    botonEnviar.textContent = 'Enviando...';
+    mensajeExito.style.display = 'none';
+    mensajeError.style.display = 'none';
+    
+    try {
+        const respuesta = await fetch(formulario.action, {
+            method: 'POST',
+            body: new FormData(formulario),
+            headers: { 'Accept': 'application/json' }
+        });
+        
+        if(respuesta.ok) {
+            formulario.style.display = 'none';
+            mensajeExito.style.display = 'block';
+            setTimeout(cerrarVentana, 3000);
+        } else {
+            throw new Error('Error en el envío');
+        }
+    } catch (error) {
+        mensajeError.style.display = 'block';
+        botonEnviar.disabled = false;
+        botonEnviar.textContent = '📤 Reintentar';
     }
-    
-    let cuerpo = `Nombre artístico: ${nombre}%0D%0ACorreo de contacto: ${correoRemitente}%0D%0A%0D%0A`;
-    if(enlaces) cuerpo += `--- Enlaces de material ---%0D%0A${enlaces.replace(/\n/g,'%0D%0A')}%0D%0A%0D%0A`;
-    if(descripcion) cuerpo += `--- Mensaje / Descripción ---%0D%0A${descripcion.replace(/\n/g,'%0D%0A')}%0D%0A`;
-    
-    const asunto = encodeURIComponent(`Propuesta de artista — ${nombre}`);
-    window.location.href = `mailto:${CORREO_DESTINO}?subject=${asunto}&body=${cuerpo}`;
-    cerrarVentana();
 });
 </script>
 
